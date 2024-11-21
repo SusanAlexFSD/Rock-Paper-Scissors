@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rock Paper Scissors</title>
+        <link rel="./node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="libs/styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Rock Paper Scissors</h1>
+            <p> Choose your Move:</p>
+            <div class="choices">
+                <button onclick="playGame('rock')"><i class="fas fa-hand-rock"></i></button>
+                <button onclick="playGame('paper')"><i class="fas fa-hand-paper"></i></button>
+                <button onclick="playGame('scissors')"><i class="fas fa-hand-scissors"></i></button>
+           </div>
+           <div id="result">
+            <p id="user-choice"></p>
+            <p id="computer-choice"></p>
+            <p id="outcome"></p>
+           </div>
+        </div>
+
+        <script src="libs/app.js"></script>
+        <script src="./node_modules/@fortawesome/fontawesome-free/js/all.min.js" defer></script>
+       
+    </body>
+</html>
