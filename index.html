@@ -1,30 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Rock Paper Scissors</title>
-        <link rel="./node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="libs/styles.css">
-    </head>
-    <body>
-        <div class="container">
-            <h1>Rock Paper Scissors</h1>
-            <p> Choose your Move:</p>
-            <div class="choices">
-                <button onclick="playGame('rock')"><i class="fas fa-hand-rock"></i></button>
-                <button onclick="playGame('paper')"><i class="fas fa-hand-paper"></i></button>
-                <button onclick="playGame('scissors')"><i class="fas fa-hand-scissors"></i></button>
-           </div>
-           <div id="result">
-            <p id="user-choice"></p>
-            <p id="computer-choice"></p>
-            <p id="outcome"></p>
-           </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Rock Paper Scissors</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <link rel="stylesheet" href="libs/styles.css" />
+</head>
+<body>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+  <div class="bg-glow glow-3"></div>
+
+  <div class="settings-overlay" id="settingsOverlay"></div>
+
+  <aside class="settings-panel" id="settingsPanel">
+    <div class="settings-header">
+      <h2>⚙ Settings</h2>
+      <button type="button" id="closeSettings" class="close-settings-btn" aria-label="Close settings">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="setting-group">
+      <h3>Theme</h3>
+      <label><input type="radio" name="theme" value="dark" checked> Dark</label>
+      <label><input type="radio" name="theme" value="light"> Light</label>
+    </div>
+
+    <div class="setting-group">
+      <h3>Sound</h3>
+      <label>
+        <input type="checkbox" id="soundToggle" checked>
+        Enabled
+      </label>
+    </div>
+
+    <div class="setting-group">
+      <h3>Difficulty</h3>
+      <label><input type="radio" name="difficulty" value="easy" checked> Easy</label>
+      <label><input type="radio" name="difficulty" value="hard"> Hard</label>
+    </div>
+
+    <div class="setting-group">
+      <h3>Score</h3>
+      <p>You: <span id="playerScore">0</span></p>
+      <p>CPU: <span id="cpuScore">0</span></p>
+      <button type="button" id="resetScore">Reset Score</button>
+    </div>
+  </aside>
+
+  <main class="app-shell">
+    <section class="game-card">
+      <button type="button" class="settings-btn" id="settingsBtn" aria-label="Open settings">
+        <i class="fa-solid fa-gear"></i>
+      </button>
+
+      <h1 class="title">Rock Paper Scissors</h1>
+      <p class="subtitle">Choose your Move</p>
+
+      <div class="choices">
+        <button type="button" class="choice-btn" data-choice="rock" aria-label="Choose Rock">
+          <span class="choice-orb">
+            <i class="fa-solid fa-hand-fist"></i>
+          </span>
+          <span class="choice-label">Rock</span>
+        </button>
+
+        <button type="button" class="choice-btn" data-choice="paper" aria-label="Choose Paper">
+          <span class="choice-orb">
+            <i class="fa-solid fa-hand"></i>
+          </span>
+          <span class="choice-label">Paper</span>
+        </button>
+
+        <button type="button" class="choice-btn" data-choice="scissors" aria-label="Choose Scissors">
+          <span class="choice-orb">
+            <i class="fa-solid fa-hand-scissors"></i>
+          </span>
+          <span class="choice-label">Scissors</span>
+        </button>
+      </div>
+
+      <section class="result-panel">
+        <div class="result-row">
+          <span class="result-tag">YOU</span>
+          <p id="user-choice">Waiting for your move...</p>
         </div>
 
-        <script src="libs/app.js"></script>
-        <script src="./node_modules/@fortawesome/fontawesome-free/js/all.min.js" defer></script>
-       
-    </body>
+        <div class="result-row">
+          <span class="result-tag">CPU</span>
+          <p id="computer-choice">Ready to play</p>
+        </div>
+
+        <div class="outcome-wrap">
+          <p id="outcome">Make your choice to begin</p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="libs/app.js"></script>
+</body>
 </html>
